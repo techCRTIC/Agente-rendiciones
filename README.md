@@ -57,4 +57,19 @@ Consulte el archivo `Documentacion-del-proyecto.html` incluido en la raíz para 
 * **Energía**: Acentos vibrantes `#ff4613` (Naranja Transaccional) y `#3bd4ae` (Mint Tecnológico).
 
 ---
+
+## 📁 Guía de Archivos para No Programadores
+
+Si no estás acostumbrado a trabajar con GitHub o repositorios de código, aquí tienes una explicación sencilla de los archivos que ves en esta carpeta y para qué sirven:
+
+* **`Agente rendiciones.json`**: ¡El corazón del proyecto! Es el archivo que contiene los ~300 nodos, la lógica y las conexiones de tu agente. Lo puedes importar directamente a n8n para que funcione.
+* **`DOCUMENTACION_AGENTE.md`**: Un archivo de texto que explica paso por paso, en español, cómo funciona la lógica interna del agente.
+* **`Documentacion-del-proyecto.html`**: Una página web completa y diseñada con la marca CRTIC que resume todo el proyecto de forma visual. ¡Haz doble clic en ella para verla en tu navegador (Chrome, Edge, Safari)!
+* **`README.md`**: El archivo que estás leyendo ahora mismo. Es la portada o "carta de presentación" del proyecto para cualquier persona que entre a la carpeta.
+* **`LICENSE`**: Un documento legal que dice bajo qué reglas otras personas pueden usar o copiar tu proyecto (en este caso, la Licencia libre MIT).
+* **`CONTRIBUTING.md`**: Una guía rápida que explica a otros programadores u organizaciones cómo pueden participar, ayudar y mejorar este agente.
+* **`.gitignore`**: Un archivo técnico oculto. Le dice a GitHub qué archivos "basura" o privados *NO* debe subir a internet (como contraseñas o archivos temporales de tu computador).
+* **`.github/` (Carpeta oculta)**: Contiene automatizaciones para cuando subas esto a internet. Por ejemplo, tiene una plantilla (`bug_report.md`) para que si alguien encuentra un error, lo reporte de forma ordenada, y un robot (`ci.yml`) que verifica que tu código no esté roto.
+
+---
 > *El Futuro sí existe.* - Centro para la Revolución Tecnológica en Industrias Creativas.
