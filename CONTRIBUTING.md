@@ -24,8 +24,8 @@ Los Pull Requests son la mejor manera de proponer cambios en el código (utiliza
 ## Cualquier Contribución que Hagas Estará Bajo la Licencia de Software MIT
 En resumen, cuando envías cambios de código, tus envíos se entienden bajo la misma [Licencia MIT](http://choosealicense.com/licenses/mit/) que cubre el proyecto. No dudes en contactar a los mantenedores si esto te preocupa.
 
-## Reporta Errores (Bugs) usando los [Issues](https://github.com/CRTIC) de Github
-Utilizamos los issues de GitHub para rastrear errores públicos. Reportar un error es tan fácil como [abrir un nuevo issue](https://github.com/CRTIC/issues/new).
+## Reporta Errores (Bugs) usando los [Issues](https://github.com/techCRTIC) de Github
+Utilizamos los issues de GitHub para rastrear errores públicos. Reportar un error es tan fácil como [abrir un nuevo issue](https://github.com/techCRTIC/issues/new).
 
 ## Escribe Reportes de Errores con Detalle, Contexto y Código de Ejemplo
 Los **Excelentes Reportes de Errores** suelen tener:
@@ -71,8 +71,8 @@ Pull requests are the best way to propose changes to the codebase (we use [Githu
 ## Any contributions you make will be under the MIT Software License
 In short, when you submit code changes, your submissions are understood to be under the same [MIT License](http://choosealicense.com/licenses/mit/) that covers the project. Feel free to contact the maintainers if that's a concern.
 
-## Report bugs using Github's [issues](https://github.com/CRTIC)
-We use GitHub issues to track public bugs. Report a bug by [opening a new issue](https://github.com/CRTIC/issues/new) it's that easy!
+## Report bugs using Github's [issues](https://github.com/techCRTIC)
+We use GitHub issues to track public bugs. Report a bug by [opening a new issue](https://github.com/techCRTIC/issues/new) it's that easy!
 
 ## Write bug reports with detail, background, and sample code
 **Great Bug Reports** tend to have:
