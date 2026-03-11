@@ -38,6 +38,7 @@ When triggered to rebrand or restyle a project, you MUST follow these exact step
    - Use the high-contrast light theme.
    - Apply the energetic orange (`#ff4613`) and teal (`#3bd4ae`) for primary CTAs and highlights.
    - Ensure the layout is bold, readable, and breathes with ample whitespace.
+   - **Logo Integration**: Insert the official CRTIC logo (`references/Logo naranjo MR.png`) into the project's main interface (e.g., the Header, Navbar, or Hero section) so the application unmistakably belongs to the CRTIC ecosystem.
 
 ### Step 5: Project Hygiene & Cleanup
 1. **Review and Remove Junk:** Scan the project for unused files, redundant placeholder images, `console.log` statements in production files, dead code, or temporary generated files (like `.tmp` artifacts that shouldn't be versioned).
