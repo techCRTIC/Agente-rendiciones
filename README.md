@@ -1,5 +1,8 @@
-# Agente de Rendiciones | Ecosistema CRTIC
+<div align="center">
+  <img src="Skills/crtic-frontend-remodeller/references/Logo naranjo MR.png" alt="CRTIC Logo" width="300" style="margin-bottom: 20px;">
+</div>
 
+# Agente de Rendiciones | Ecosistema CRTIC
 ![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
 ![Node Version](https://img.shields.io/badge/node-%3E%3D20.0-blue)
 ![License](https://img.shields.io/badge/license-MIT-blue)

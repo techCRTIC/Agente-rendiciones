@@ -56,6 +56,7 @@ To ensure the project repository is world-class, production-ready, and aligns wi
 4. **README Enrichment (Non-Technical Guide):** Ensure the README includes a 'Guía de Archivos para No Programadores' (Guide for Non-Programmers). This section should explain, in simple terms, the purpose of all repository management files (e.g., `.gitignore`, `.github/workflows`, `LICENSE`, `CONTRIBUTING.md`, etc.) so non-technical ecosystem members can understand the repository structure without confusion.
 5. **Integrated Automation:** Create a `.github/workflows/ci.yml` file to enable basic GitHub Actions CI (build/test checks) to display a solid green checkmark. Add basic issue templates in `.github/ISSUE_TEMPLATE/`.
 6. **Code Aesthetics & Hygiene:** Inject strict `.prettierrc` and `.eslintrc.js` files if missing so future collaborators maintain pristine code. Ensure a robust `.gitignore` is present (excluding `node_modules`, `.tmp`, testing environments, etc.).
+7. **Brand Identity (Logo):** You MUST prominently include the official CRTIC logo (`references/Logo naranjo MR.png`) at the top of the generated `README.md` and the `Documentacion-del-proyecto.html` files. The logo must be sized appropriately and centered to serve as the visual anchor for the project.
 
 ---
 
