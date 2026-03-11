@@ -58,6 +58,7 @@ To ensure the project repository is world-class, production-ready, and aligns wi
 5. **Integrated Automation:** Create a `.github/workflows/ci.yml` file to enable basic GitHub Actions CI (build/test checks) to display a solid green checkmark. Add basic issue templates in `.github/ISSUE_TEMPLATE/`.
 6. **Code Aesthetics & Hygiene:** Inject strict `.prettierrc` and `.eslintrc.js` files if missing so future collaborators maintain pristine code. Ensure a robust `.gitignore` is present (excluding `node_modules`, `.tmp`, testing environments, etc.).
 7. **Brand Identity (Logo):** You MUST prominently include the official CRTIC logo (`references/Logo naranjo MR.png`) at the top of the generated `README.md` and the `Documentacion-del-proyecto.html` files. The logo must be sized appropriately and centered to serve as the visual anchor for the project.
+8. **Bilingual Documentation:** Generate all informational documents (`README.md` and the HTML showcase) with dual-language support (Spanish and English). For the `README.md`, ensure the content is neatly separated into distinct language sections (e.g. ## Español and ## English). For the HTML page, include both language contents and map them to an interactive toggle button via JS/CSS so the user can dynamically switch the interface language.
 
 ---
 

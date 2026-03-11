@@ -28,6 +28,28 @@
             font-weight: 300;
         }
 
+        .lang-en { display: none; }
+        
+        .lang-toggle {
+            position: relative;
+            background: transparent;
+            border: 2px solid var(--crtic-border);
+            padding: 8px 16px;
+            border-radius: 0;
+            cursor: pointer;
+            font-family: 'Manrope', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--crtic-text);
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+
+        .lang-toggle:hover {
+            border-color: var(--crtic-orange);
+            color: var(--crtic-orange);
+        }
+
         /* Layout & Container */
         .container {
             max-width: 1200px;
@@ -308,95 +330,207 @@
 </head>
 <body>
 
-    <nav style="position: absolute; top: 0; left: 0; width: 100%; padding: 40px 5%; z-index: 10; box-sizing: border-box;">
+    <nav style="position: absolute; top: 0; left: 0; width: 100%; padding: 40px 5%; z-index: 10; box-sizing: border-box; display: flex; justify-content: space-between; align-items: center;">
         <img src="Skills/crtic-frontend-remodeller/references/Logo naranjo MR.png" alt="CRTIC Logo" width="150">
+        <button id="langToggleBtn" class="lang-toggle" onclick="toggleLanguage()">EN</button>
     </nav>
 
-    <header>
-        <div class="decor-grid"></div>
-        <div class="container hero-content">
-            <span class="hero-badge">Ecosistema Tecnocreativo</span>
-            <h1>Agente Inteligente de <br><span class="hero-accent">Rendiciones</span></h1>
-            <p>
-                Un sistema de Inteligencia Artificial diseñado para optimizar, centralizar y automatizar la gestión de rendiciones de gastos corporativos, orquestado a través de n8n y accesible íntegramente vía WhatsApp.
-            </p>
-            <div class="btn-group">
-                <a href="#arquitectura" class="btn btn-primary">Ver Arquitectura</a>
-                <a href="#flujo" class="btn btn-secondary">Explorar Flujo</a>
-            </div>
-        </div>
-    </header>
-
-    <section id="arquitectura">
-        <div class="container animate-on-scroll">
-            <h2>Contexto del Proyecto y Arquitectura</h2>
-            <p>El sistema se integra directamente a WhatsApp, permitiendo a los usuarios enviar fotografías de recibos y documentos financieros de forma rápida y ubicua. El agente actúa como el motor principal que, mediante visión artificial y procesamiento del lenguaje natural (NLP), extrae los datos relevantes de las imágenes y los estructura en la base de datos de la organización.</p>
-            
-            <p>La arquitectura del ecosistema está concebida bajo un enfoque de microservicios, lo que garantiza alta escalabilidad y robustez frente a un gran volumen de transacciones.</p>
-
-            <div class="grid-cards">
-                <div class="card">
-                    <div class="card-icon">👁️</div>
-                    <h3>Visión Artificial & NLP</h3>
-                    <p>Utilización de Modelos Fundacionales (Google Gemini / OpenAI) para el reconocimiento óptico de caracteres y extracción semántica de campos transaccionales clave.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">🛡️</div>
-                    <h3>Detección de Anomalías</h3>
-                    <p>El flujo incorpora algoritmos orientados a identificar posibles fraudes y errores en los comprobantes, sumando una vital capa de seguridad y precisión financiera.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">⚡</div>
-                    <h3>Microservicios Escalables</h3>
-                    <p>Desarrollado sobre la plataforma n8n, permitiendo orquestación de APIs modulares (WhatsApp Graph API, Google Drive, Google Sheets, LLMs).</p>
+    <!-- SPANISH CONTENT -->
+    <div class="lang-es">
+        <header>
+            <div class="decor-grid"></div>
+            <div class="container hero-content">
+                <span class="hero-badge">Ecosistema Tecnocreativo</span>
+                <h1>Agente Inteligente de <br><span class="hero-accent">Rendiciones</span></h1>
+                <p>
+                    Un sistema de Inteligencia Artificial diseñado para optimizar, centralizar y automatizar la gestión de rendiciones de gastos corporativos, orquestado a través de n8n y accesible íntegramente vía WhatsApp.
+                </p>
+                <div class="btn-group">
+                    <a href="#arquitectura-es" class="btn btn-primary">Ver Arquitectura</a>
+                    <a href="#flujo-es" class="btn btn-secondary">Explorar Flujo</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </header>
 
-    <section id="flujo">
-        <div class="container animate-on-scroll">
-            <h2>Paso a Paso del Flujo (n8n)</h2>
-            <p>A continuación, el detalle lógico de cómo operan los ~300 nodos definidos en la automatización para crear una experiencia bidireccional perfecta.</p>
-
-            <ul class="step-list">
-                <li class="step-item animate-on-scroll">
-                    <h3>Recepción del Mensaje y Autenticación</h3>
-                    <p>Inicia el flujo a través de un webhook de WhatsApp. Se conecta inmediatamente a Google Sheets ("Numeros Autorizados") para validar credenciales asegurando que el número del emisor exista en la base corporativa y bloqueando consumos fantasmas en las APIs de los LLM.</p>
-                </li>
+        <section id="arquitectura-es">
+            <div class="container animate-on-scroll">
+                <h2>Contexto del Proyecto y Arquitectura</h2>
+                <p>El sistema se integra directamente a WhatsApp, permitiendo a los usuarios enviar fotografías de recibos y documentos financieros de forma rápida y ubicua. El agente actúa como el motor principal que, mediante visión artificial y procesamiento del lenguaje natural (NLP), extrae los datos relevantes de las imágenes y los estructura en la base de datos de la organización.</p>
                 
-                <li class="step-item animate-on-scroll">
-                    <h3>Análisis de Imágenes y OCR (Extracción Inteligente)</h3>
-                    <p>Al recibir un archivo multimedia, el sistema descarga la foto del recibo y ejecuta una llamada a la Inteligencia Artificial. Un nodo de Código especial filtra la respuesta con expresiones regulares asegurando el formato JSON puro de los campos: Fecha, RUT, Proveedor, Detalle de gasto y Monto.</p>
-                </li>
+                <p>La arquitectura del ecosistema está concebida bajo un enfoque de microservicios, lo que garantiza alta escalabilidad y robustez frente a un gran volumen de transacciones.</p>
 
-                <li class="step-item animate-on-scroll">
-                    <h3>Aprobación y State Machine Conversacional</h3>
-                    <p>Dado que WhatsApp no preserva el contexto nativamente como un chat interactivo, el flujo utiliza una hoja temporal "Memoria Mensajes" como base de datos de estado. Envía los datos extraídos al usuario por WhatsApp para su aprobación (Si/No).</p>
-                </li>
+                <div class="grid-cards">
+                    <div class="card">
+                        <div class="card-icon">👁️</div>
+                        <h3>Visión Artificial & NLP</h3>
+                        <p>Utilización de Modelos Fundacionales (Google Gemini / OpenAI) para el reconocimiento óptico de caracteres y extracción semántica de campos transaccionales clave.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🛡️</div>
+                        <h3>Detección de Anomalías</h3>
+                        <p>El flujo incorpora algoritmos orientados a identificar posibles fraudes y errores en los comprobantes, sumando una vital capa de seguridad y precisión financiera.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">⚡</div>
+                        <h3>Microservicios Escalables</h3>
+                        <p>Desarrollado sobre la plataforma n8n, permitiendo orquestación de APIs modulares (WhatsApp Graph API, Google Drive, Google Sheets, LLMs).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                <li class="step-item animate-on-scroll">
-                    <h3>Clasificación e Información Manual</h3>
-                    <p>Mediante una amplia red lógica de nodos <code>Switch</code>, el agente solicita categorización interactiva. Cuestiona sobre el Tipo de Documento, Tipo de Rendición (Caja chica, Fondo por rendir o Reembolso) y la proveniencia. Si algún campo falló en la extracción, solicita ingresar el dato faltante reactivando el trigger y consultando el "Estado" desde Google Sheets iterativamente.</p>
-                </li>
+        <section id="flujo-es">
+            <div class="container animate-on-scroll">
+                <h2>Paso a Paso del Flujo (n8n)</h2>
+                <p>A continuación, el detalle lógico de cómo operan los ~300 nodos definidos en la automatización para crear una experiencia bidireccional perfecta.</p>
 
-                <li class="step-item animate-on-scroll">
-                    <h3>Consolidación y Registro Oficial</h3>
-                    <p>Validado cada punto, sube el respaldo físico a Google Drive generando un enlace público. Determina la hoja final correspondiente a la rendición, inserta la metadata estructurada limpia y borra los archivos/filas de estado temporal para mantener la higiene de la base de datos. Finaliza con un mensaje confirmatorio al usuario.</p>
-                </li>
-            </ul>
-        </div>
-    </section>
+                <ul class="step-list">
+                    <li class="step-item animate-on-scroll">
+                        <h3>Recepción del Mensaje y Autenticación</h3>
+                        <p>Inicia el flujo a través de un webhook de WhatsApp. Se conecta inmediatamente a Google Sheets ("Numeros Autorizados") para validar credenciales asegurando que el número del emisor exista en la base corporativa y bloqueando consumos fantasmas en las APIs de los LLM.</p>
+                    </li>
+                    
+                    <li class="step-item animate-on-scroll">
+                        <h3>Análisis de Imágenes y OCR (Extracción Inteligente)</h3>
+                        <p>Al recibir un archivo multimedia, el sistema descarga la foto del recibo y ejecuta una llamada a la Inteligencia Artificial. Un nodo de Código especial filtra la respuesta con expresiones regulares asegurando el formato JSON puro de los campos: Fecha, RUT, Proveedor, Detalle de gasto y Monto.</p>
+                    </li>
 
-    <footer>
-        <div class="container">
-            <div class="footer-logo">CRTIC <span class="footer-accent">.</span></div>
-            <p>Centro para la Revolución Tecnológica en Industrias Creativas</p>
-            <p style="font-size: 14px; opacity: 0.6; margin-top: 40px;">El Futuro sí existe.</p>
-        </div>
-    </footer>
+                    <li class="step-item animate-on-scroll">
+                        <h3>Aprobación y State Machine Conversacional</h3>
+                        <p>Dado que WhatsApp no preserva el contexto nativamente como un chat interactivo, el flujo utiliza una hoja temporal "Memoria Mensajes" como base de datos de estado. Envía los datos extraídos al usuario por WhatsApp para su aprobación (Si/No).</p>
+                    </li>
+
+                    <li class="step-item animate-on-scroll">
+                        <h3>Clasificación e Información Manual</h3>
+                        <p>Mediante una amplia red lógica de nodos <code>Switch</code>, el agente solicita categorización interactiva. Cuestiona sobre el Tipo de Documento, Tipo de Rendición (Caja chica, Fondo por rendir o Reembolso) y la proveniencia. Si algún campo falló en la extracción, solicita ingresar el dato faltante reactivando el trigger y consultando el "Estado" desde Google Sheets iterativamente.</p>
+                    </li>
+
+                    <li class="step-item animate-on-scroll">
+                        <h3>Consolidación y Registro Oficial</h3>
+                        <p>Validado cada punto, sube el respaldo físico a Google Drive generando un enlace público. Determina la hoja final correspondiente a la rendición, inserta la metadata estructurada limpia y borra los archivos/filas de estado temporal para mantener la higiene de la base de datos. Finaliza con un mensaje confirmatorio al usuario.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        
+        <footer>
+            <div class="container">
+                <div class="footer-logo">CRTIC <span class="footer-accent">.</span></div>
+                <p>Centro para la Revolución Tecnológica en Industrias Creativas</p>
+                <p style="font-size: 14px; opacity: 0.6; margin-top: 40px;">El Futuro sí existe.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- ENGLISH CONTENT -->
+    <div class="lang-en">
+        <header>
+            <div class="decor-grid"></div>
+            <div class="container hero-content">
+                <span class="hero-badge">Techno-Creative Ecosystem</span>
+                <h1>Intelligent Expense <br><span class="hero-accent">Agent</span></h1>
+                <p>
+                    An Artificial Intelligence system designed to optimize, centralize, and automate the management of corporate expense reports, orchestrated through n8n and fully accessible via WhatsApp.
+                </p>
+                <div class="btn-group">
+                    <a href="#arquitectura-en" class="btn btn-primary">View Architecture</a>
+                    <a href="#flujo-en" class="btn btn-secondary">Explore Flow</a>
+                </div>
+            </div>
+        </header>
+
+        <section id="arquitectura-en">
+            <div class="container animate-on-scroll">
+                <h2>Project Context & Architecture</h2>
+                <p>The system integrates directly with WhatsApp, allowing users to quickly and ubiquitously send photographs of receipts and financial documents. The agent acts as the core engine which, through computer vision and natural language processing (NLP), extracts relevant data from the images and structures them into the organization's database.</p>
+                
+                <p>The ecosystem's architecture is built on a microservices approach, ensuring high scalability and robustness against a large volume of transactions.</p>
+
+                <div class="grid-cards">
+                    <div class="card">
+                        <div class="card-icon">👁️</div>
+                        <h3>Computer Vision & NLP</h3>
+                        <p>Utilization of Foundational Models (Google Gemini / OpenAI) for optical character recognition and semantic extraction of key transactional fields.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🛡️</div>
+                        <h3>Anomaly Detection</h3>
+                        <p>The workflow incorporates algorithms aimed at identifying potential fraud and errors in receipts, adding a vital layer of financial security and accuracy.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">⚡</div>
+                        <h3>Scalable Microservices</h3>
+                        <p>Developed on the n8n platform, allowing orchestration of modular APIs (WhatsApp Graph API, Google Drive, Google Sheets, LLMs).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="flujo-en">
+            <div class="container animate-on-scroll">
+                <h2>Step-by-Step Flow (n8n)</h2>
+                <p>Below is the logical detail of how the ~300 nodes defined in the automation operate to create a seamless bidirectional experience.</p>
+
+                <ul class="step-list">
+                    <li class="step-item animate-on-scroll">
+                        <h3>Message Reception & Authentication</h3>
+                        <p>The flow starts through a WhatsApp webhook. It immediately connects to Google Sheets ("Allowed Numbers") to validate credentials, ensuring the sender's number exists in the corporate database and blocking ghost consumptions on the LLM APIs.</p>
+                    </li>
+                    
+                    <li class="step-item animate-on-scroll">
+                        <h3>Image Analysis & OCR (Smart Extraction)</h3>
+                        <p>Upon receiving a media file, the system downloads the receipt photo and executes a call to Artificial Intelligence. A special Code node filters the response with regular expressions ensuring a pure JSON format of the fields: Date, Tax ID, Provider, Expense Detail, and Amount.</p>
+                    </li>
+
+                    <li class="step-item animate-on-scroll">
+                        <h3>Approval & Conversational State Machine</h3>
+                        <p>Since WhatsApp does not natively preserve context as an interactive chat, the flow uses a temporary sheet "Message Memory" as a state database. It sends the extracted data to the user via WhatsApp for approval (Yes/No).</p>
+                    </li>
+
+                    <li class="step-item animate-on-scroll">
+                        <h3>Manual Classification & Information</h3>
+                        <p>Through a vast logical network of Switch nodes, the agent requests interactive categorization. It asks about Document Type, Expense Type (Petty Cash, Fund to be Rendered, or Reimbursement), and origin. If any field failed in extraction, it requests the missing data, reactivating the trigger and querying the "State" from Google Sheets iteratively.</p>
+                    </li>
+
+                    <li class="step-item animate-on-scroll">
+                        <h3>Consolidation & Official Registration</h3>
+                        <p>Once everything is validated, it uploads the physical backup to Google Drive generating a public link. It determines the final sheet corresponding to the expense, inserts the clean structured metadata, and deletes the temporary state files/rows to maintain database hygiene. It ends with a confirmation message to the user.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <div class="footer-logo">CRTIC <span class="footer-accent">.</span></div>
+                <p>Center for the Technological Revolution in Creative Industries</p>
+                <p style="font-size: 14px; opacity: 0.6; margin-top: 40px;">The Future does exist.</p>
+            </div>
+        </footer>
+    </div>
 
     <script>
+        // Language Toggle
+        function toggleLanguage() {
+            const btn = document.getElementById('langToggleBtn');
+            const esContent = document.querySelectorAll('.lang-es');
+            const enContent = document.querySelectorAll('.lang-en');
+            
+            if (btn.innerText === "EN") {
+                // Switch to English
+                esContent.forEach(el => el.style.display = 'none');
+                enContent.forEach(el => el.style.display = 'block');
+                btn.innerText = "ES";
+                document.documentElement.lang = "en";
+            } else {
+                // Switch to Spanish
+                enContent.forEach(el => el.style.display = 'none');
+                esContent.forEach(el => el.style.display = 'block');
+                btn.innerText = "EN";
+                document.documentElement.lang = "es";
+            }
+        }
+
         // Simple scroll animation observer
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
