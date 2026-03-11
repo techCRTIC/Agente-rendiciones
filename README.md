@@ -47,6 +47,8 @@ graph TD
     M --> N[Cleaner de Estados Temporales]
 ```
 
+*Para visualizar o editar este diagrama de arquitectura interactivamente, puedes utilizar el [Mermaid Live Editor](https://mermaid.ai/web/).*
+
 ## 🎨 Frontend y Estética (CRTIC Style)
 
 Este proyecto y su documentación interna adhieren de manera estricta a la **Esencia CRTIC**. 
@@ -69,9 +71,5 @@ Si no estás acostumbrado a trabajar con GitHub o repositorios de código, aquí
 * **`LICENSE`**: Un documento legal que dice bajo qué reglas otras personas pueden usar o copiar tu proyecto (en este caso, la Licencia libre MIT).
 * **`CONTRIBUTING.md`**: Una guía rápida que explica a otros programadores u organizaciones cómo pueden participar, ayudar y mejorar este agente.
 * **`.gitignore`**: Un archivo técnico oculto. Le dice a GitHub qué archivos "basura" o privados *NO* debe subir a internet (como contraseñas o archivos temporales de tu computador).
-* **`.github/` (Carpeta oculta)**: Esta carpeta es especial para la plataforma GitHub (donde viven los repositorios). Funciona como el "cerebro administrativo" del proyecto y contiene sub-carpetas con automatizaciones y reglas de comunidad:
-  * **`ISSUE_TEMPLATE/bug_report.md`**: Es un formulario o plantilla prefabricada. Si alguien en el futuro usa tu agente y encuentra un problema (un "bug"), GitHub le mostrará automáticamente este formato (pidiendo detallar el error, qué navegador usaba, etc.) para que te envíen reportes ordenados y fáciles de entender, en lugar de mensajes desordenados.
-  * **`workflows/ci.yml`**: Este es un "robot" automatizado (GitHub Actions). Cada vez que tú o alguien más hacen una modificación nueva al código, este archivo despierta a un computador en la nube que revisa automáticamente que los cambios no hayan roto el proyecto de forma catastrófica antes de aceptarlos.
-
 ---
 > *El Futuro sí existe.* - Centro para la Revolución Tecnológica en Industrias Creativas.
