@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agente Rendiciones | Ecosistema CRTIC</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&display=swap');
+
+        :root {
+            --crtic-text: #3e424b;
+            --crtic-heading: #1d1f23;
+            --crtic-bg: #ffffff;
+            --crtic-bg-alt: #f7f7f7;
+            --crtic-orange: #ff4613;
+            --crtic-orange-dark: #c53811;
+            --crtic-teal: #3bd4ae;
+            --crtic-border: #eaeaea;
+        }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: var(--crtic-bg);
+            color: var(--crtic-text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        /* Layout & Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        section:nth-child(even) {
+            background-color: var(--crtic-bg-alt);
+            border-top: 1px solid var(--crtic-border);
+            border-bottom: 1px solid var(--crtic-border);
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            color: var(--crtic-heading);
+            margin-top: 0;
+        }
+
+        h1 {
+            font-size: clamp(40px, 6vw, 65px);
+            font-weight: 600;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+
+        h2 {
+            font-size: clamp(30px, 4vw, 45px);
+            font-weight: 600;
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--crtic-orange);
+        }
+
+        h3 {
+            font-size: clamp(24px, 3vw, 30px);
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 24px;
+            max-width: 800px;
+        }
+
+        /* Header / Hero Section */
+        header {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid var(--crtic-border);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeUp 1s ease forwards;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background-color: var(--crtic-text);
+            color: var(--crtic-bg);
+            padding: 6px 16px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .hero-accent {
+            color: var(--crtic-orange);
+        }
+
+        /* Decorative Grid */
+        .decor-grid {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background-image: 
+                linear-gradient(var(--crtic-border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--crtic-border) 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.5;
+            z-index: 0;
+            mask-image: linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0));
+            -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0));
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            font-family: 'Manrope', sans-serif;
+            font-weight: 600;
+            padding: 16px 32px;
+            text-transform: uppercase;
+            text-decoration: none;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .btn-primary {
+            background-color: var(--crtic-orange);
+            color: var(--crtic-bg);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--crtic-orange-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--crtic-orange);
+            border: 2px solid var(--crtic-orange);
+            padding: 14px 30px; /* Adjust for border */
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--crtic-orange);
+            color: var(--crtic-bg);
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        /* Cards / Features */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin-top: 60px;
+        }
+
+        .card {
+            background: var(--crtic-bg);
+            border: 1px solid var(--crtic-border);
+            padding: 40px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--crtic-teal);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-icon {
+            font-size: 40px;
+            color: var(--crtic-orange);
+            margin-bottom: 24px;
+        }
+        
+        /* Architecture / Steps */
+        .step-list {
+            list-style: none;
+            padding: 0;
+            counter-reset: step-counter;
+        }
+
+        .step-item {
+            position: relative;
+            padding-left: 80px;
+            margin-bottom: 40px;
+        }
+
+        .step-item::before {
+            counter-increment: step-counter;
+            content: "0" counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 32px;
+            font-weight: 600;
+            color: var(--crtic-teal);
+            line-height: 1;
+        }
+
+        .step-item h3 {
+            margin-bottom: 12px;
+        }
+
+        /* Animations */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--crtic-heading);
+            color: var(--crtic-bg);
+            padding: 80px 0 40px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            color: var(--crtic-bg);
+        }
+
+        .footer-accent {
+            color: var(--crtic-teal);
+        }
+
+        /* Code Block */
+        .code-block {
+            background-color: var(--crtic-heading);
+            color: var(--crtic-bg);
+            padding: 24px;
+            border-left: 4px solid var(--crtic-orange);
+            font-family: monospace;
+            overflow-x: auto;
+            margin: 32px 0;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="decor-grid"></div>
+        <div class="container hero-content">
+            <span class="hero-badge">Ecosistema Tecnocreativo</span>
+            <h1>Agente Inteligente de <br><span class="hero-accent">Rendiciones</span></h1>
+            <p>
+                Un sistema de Inteligencia Artificial diseñado para optimizar, centralizar y automatizar la gestión de rendiciones de gastos corporativos, orquestado a través de n8n y accesible íntegramente vía WhatsApp.
+            </p>
+            <div class="btn-group">
+                <a href="#arquitectura" class="btn btn-primary">Ver Arquitectura</a>
+                <a href="#flujo" class="btn btn-secondary">Explorar Flujo</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="arquitectura">
+        <div class="container animate-on-scroll">
+            <h2>Contexto del Proyecto y Arquitectura</h2>
+            <p>El sistema se integra directamente a WhatsApp, permitiendo a los usuarios enviar fotografías de recibos y documentos financieros de forma rápida y ubicua. El agente actúa como el motor principal que, mediante visión artificial y procesamiento del lenguaje natural (NLP), extrae los datos relevantes de las imágenes y los estructura en la base de datos de la organización.</p>
+            
+            <p>La arquitectura del ecosistema está concebida bajo un enfoque de microservicios, lo que garantiza alta escalabilidad y robustez frente a un gran volumen de transacciones.</p>
+
+            <div class="grid-cards">
+                <div class="card">
+                    <div class="card-icon">👁️</div>
+                    <h3>Visión Artificial & NLP</h3>
+                    <p>Utilización de Modelos Fundacionales (Google Gemini / OpenAI) para el reconocimiento óptico de caracteres y extracción semántica de campos transaccionales clave.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🛡️</div>
+                    <h3>Detección de Anomalías</h3>
+                    <p>El flujo incorpora algoritmos orientados a identificar posibles fraudes y errores en los comprobantes, sumando una vital capa de seguridad y precisión financiera.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">⚡</div>
+                    <h3>Microservicios Escalables</h3>
+                    <p>Desarrollado sobre la plataforma n8n, permitiendo orquestación de APIs modulares (WhatsApp Graph API, Google Drive, Google Sheets, LLMs).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="flujo">
+        <div class="container animate-on-scroll">
+            <h2>Paso a Paso del Flujo (n8n)</h2>
+            <p>A continuación, el detalle lógico de cómo operan los ~300 nodos definidos en la automatización para crear una experiencia bidireccional perfecta.</p>
+
+            <ul class="step-list">
+                <li class="step-item animate-on-scroll">
+                    <h3>Recepción del Mensaje y Autenticación</h3>
+                    <p>Inicia el flujo a través de un webhook de WhatsApp. Se conecta inmediatamente a Google Sheets ("Numeros Autorizados") para validar credenciales asegurando que el número del emisor exista en la base corporativa y bloqueando consumos fantasmas en las APIs de los LLM.</p>
+                </li>
+                
+                <li class="step-item animate-on-scroll">
+                    <h3>Análisis de Imágenes y OCR (Extracción Inteligente)</h3>
+                    <p>Al recibir un archivo multimedia, el sistema descarga la foto del recibo y ejecuta una llamada a la Inteligencia Artificial. Un nodo de Código especial filtra la respuesta con expresiones regulares asegurando el formato JSON puro de los campos: Fecha, RUT, Proveedor, Detalle de gasto y Monto.</p>
+                </li>
+
+                <li class="step-item animate-on-scroll">
+                    <h3>Aprobación y State Machine Conversacional</h3>
+                    <p>Dado que WhatsApp no preserva el contexto nativamente como un chat interactivo, el flujo utiliza una hoja temporal "Memoria Mensajes" como base de datos de estado. Envía los datos extraídos al usuario por WhatsApp para su aprobación (Si/No).</p>
+                </li>
+
+                <li class="step-item animate-on-scroll">
+                    <h3>Clasificación e Información Manual</h3>
+                    <p>Mediante una amplia red lógica de nodos <code>Switch</code>, el agente solicita categorización interactiva. Cuestiona sobre el Tipo de Documento, Tipo de Rendición (Caja chica, Fondo por rendir o Reembolso) y la proveniencia. Si algún campo falló en la extracción, solicita ingresar el dato faltante reactivando el trigger y consultando el "Estado" desde Google Sheets iterativamente.</p>
+                </li>
+
+                <li class="step-item animate-on-scroll">
+                    <h3>Consolidación y Registro Oficial</h3>
+                    <p>Validado cada punto, sube el respaldo físico a Google Drive generando un enlace público. Determina la hoja final correspondiente a la rendición, inserta la metadata estructurada limpia y borra los archivos/filas de estado temporal para mantener la higiene de la base de datos. Finaliza con un mensaje confirmatorio al usuario.</p>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo">CRTIC <span class="footer-accent">.</span></div>
+            <p>Centro para la Revolución Tecnológica en Industrias Creativas</p>
+            <p style="font-size: 14px; opacity: 0.6; margin-top: 40px;">El Futuro sí existe.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple scroll animation observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
